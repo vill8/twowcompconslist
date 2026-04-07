@@ -146,7 +146,7 @@
     "persists": true,
     "stacks": "Weapon Buffs",
     "isFood": false,
-    "roles": ["ranged"],
+    "roles": ["ranged", "healer"],
     "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
   },
   {
@@ -770,8 +770,8 @@
       "persists": true,
       "stacks": "No",
       "isFood": false,
-      "roles": ["ranged"],
-      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+      "roles": ["ranged", "healer"],
+      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin", "priest"]
     },
     {
       "name": "Sapta of Communion",
