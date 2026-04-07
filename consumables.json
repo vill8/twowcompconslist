@@ -1,0 +1,777 @@
+[
+  {
+    "name": "Spirit of Zanza",
+    "effect": "Increases the player's Spirit by 50 and Stamina by 50 for 2 hr.",
+    "duration": "2 hours",
+    "persists": true,
+    "stacks": "No & cancels blasted lands buff",
+    "isFood": false,
+    "roles": ["tank", "melee", "ranged", "healer"],
+    "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+  },
+  {
+    "name": "Elixir of the Mongoose",
+    "effect": "Increases Agility by 25 and chance to get a critical hit by 2% for 1 hr.",
+    "duration": "1 hour",
+    "persists": true,
+    "stacks": "Battle Elixirs",
+    "isFood": false,
+    "roles": ["tank", "melee", "ranged"],
+    "classes": ["warrior", "paladin", "rogue", "hunter", "druid", "shaman"]
+  },
+  {
+    "name": "Greater Arcane Elixir",
+    "effect": "Increases spell damage by up to 35 for 30 min.",
+    "duration": "30 min",
+    "persists": true,
+    "stacks": "Battle Elixirs",
+    "isFood": false,
+    "roles": ["ranged", "healer"],
+    "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+  },
+  {
+    "name": "Mageblood Potion",
+    "effect": "Regenerate 12 mana per 5 sec for 1 hour.",
+    "duration": "1 hour",
+    "persists": true,
+    "stacks": "Guardian Elixirs",
+    "isFood": false,
+    "roles": ["ranged", "healer"],
+    "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin", "hunter"]
+  },
+  {
+    "name": "Dreamshard Elixir",
+    "effect": "Grants 2% spell critical and 15 spell damage and healing for 1 hr.",
+    "duration": "1 hour",
+    "persists": true,
+    "stacks": "Battle Elixirs",
+    "isFood": false,
+    "roles": ["ranged", "healer"],
+    "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+  },
+  {
+    "name": "Elixir of Superior Defense",
+    "effect": "Increases armor by 450 for 1 hr.",
+    "duration": "1 hour",
+    "persists": true,
+    "stacks": "Guardian Elixirs",
+    "isFood": false,
+    "roles": ["tank"],
+    "classes": ["warrior", "paladin", "druid"]
+  },
+  {
+    "name": "Juju Might",
+    "effect": "Increases your attack power by 40 for 10 min.",
+    "duration": "10 min",
+    "persists": false,
+    "stacks": "Attack Power buffs",
+    "isFood": false,
+    "roles": ["melee", "tank", "ranged"],
+    "classes": ["warrior", "rogue", "hunter", "paladin", "druid", "shaman"]
+  },
+  {
+    "name": "Winterfall Firewater",
+    "effect": "Increases your melee attack power by 35 and size for 20 min.",
+    "duration": "20 min",
+    "persists": false,
+    "stacks": "Attack Power buffs",
+    "isFood": false,
+    "roles": ["melee", "tank"],
+    "classes": ["warrior", "rogue", "paladin", "druid", "shaman"]
+  },
+  {
+    "name": "Danonzo's Tel'Abim Medley",
+    "effect": "Gain 2% Haste for 15 min.",
+    "duration": "15 min",
+    "persists": false,
+    "stacks": "Food buffs (Stacks with Grilled Squid)",
+    "isFood": true,
+    "roles": ["melee", "ranged", "tank", "healer"],
+    "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+  },
+  {
+    "name": "Le Fishe Au Chocolat",
+    "effect": "Gain 1% dodge and 4 defense for 15 min.",
+    "duration": "15 min",
+    "persists": false,
+    "stacks": "Food buffs",
+    "isFood": true,
+    "roles": ["tank"],
+    "classes": ["warrior", "paladin", "druid"]
+  },
+  {
+    "name": "Danonzo's Tel'Abim Delight",
+    "effect": "Gain 22 spell damage for 15 min.",
+    "duration": "15 min",
+    "persists": false,
+    "stacks": "Food buffs",
+    "isFood": true,
+    "roles": ["ranged"],
+    "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+  },
+  {
+    "name": "Nightfin Soup",
+    "effect": "Restores 8 Mana every 5 seconds for 10 min.",
+    "duration": "10 min",
+    "persists": false,
+    "stacks": "Food buffs",
+    "isFood": true,
+    "roles": ["healer", "ranged"],
+    "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin", "hunter"]
+  },
+  {
+    "name": "Greater Fire Protection Potion",
+    "effect": "Absorbs 1950 to 3251 fire damage. Lasts 1 hr.",
+    "duration": "1 hour",
+    "persists": true,
+    "stacks": "Protection Potions",
+    "isFood": false,
+    "roles": ["tank", "melee", "ranged", "healer"],
+    "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+  },
+  {
+    "name": "Major Mana Potion",
+    "effect": "Restores 1350 to 2251 mana.",
+    "duration": "Instant",
+    "persists": false,
+    "stacks": "Potions (2 min CD)",
+    "isFood": false,
+    "roles": ["healer", "ranged"],
+    "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin", "hunter"]
+  },
+  {
+    "name": "Brilliant Wizard Oil",
+    "effect": "Increases spell damage by up to 36 and increases Spell Critical chance by 1%.",
+    "duration": "30 min",
+    "persists": true,
+    "stacks": "Weapon Buffs",
+    "isFood": false,
+    "roles": ["ranged"],
+    "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+  },
+  {
+    "name": "Brilliant Mana Oil",
+    "effect": "Increases mana regeneration by 10 per 5 sec and increases Spell Critical chance by 1%.",
+    "duration": "30 min",
+    "persists": true,
+    "stacks": "No",
+    "isFood": false,
+    "roles": ["ranged", "healer"],
+    "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+  },
+    {
+        "name": "Sweet Mountain Berry",
+        "effect": "Increase you agility by 10 for 10 min",
+        "duration": "10 min",
+        "persists": false,
+        "stacks": "No",
+        "isFood": true,
+        "roles": ["ranged", "melee"],
+        "classes": ["rogue", "warrior", "paladin", "druid", "shaman", "hunter"]
+    },
+    {
+        "name": "Flask of the Titans",
+        "effect": "Increases maximum health by 1000 for 1 hr.",
+        "duration": "1 hour",
+        "persists": true,
+        "stacks": "No",
+        "isFood": false,
+        "roles": ["tank", "melee", "ranged", "healer"],
+        "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+        "name": "Elixir of Fortitude",
+        "effect": "Increases maximum health by 250 for 1 hr.",
+        "duration": "1 hour",
+        "persists": true,
+        "stacks": "with spirit of zanza",
+        "isFood": false,
+        "roles": ["tank", "melee", "ranged", "healer"],
+        "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+        "name": "Scroll of Protection IV",
+        "effect": "Increases armor by 500 for 30 min.",
+        "duration": "30 min",
+        "persists": true,
+        "stacks": "with elixir of superior defense",
+        "isFood": false,
+        "roles": ["tank"],
+        "classes": ["warrior", "paladin", "druid"]
+    },
+    {
+        "name": "Gift of Arthas",
+        "effect": "+10 shadow resistance, attacker has 30% chance of getting disease that increases damage taken by 8 for 180s.",
+        "duration": "3 min",
+        "persists": false,
+        "stacks": "No",
+        "isFood": false,
+        "roles": ["tank", "melee", "ranged", "healer"],
+        "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+
+    },
+    {
+        "name": "Ground Scorpok Assay",
+        "effect": "+25 AGI",
+        "duration": "1 hr",
+        "persists": true,
+        "stacks": "Elixir of Mongoose",
+        "isFood": false,
+        "roles": ["ranged", "melee"],
+        "classes": ["rogue", "warrior", "paladin", "druid", "shaman", "hunter"]
+    },
+    {
+        "name": "R.O.I.D.S.",
+        "effect": "+25 STR",
+        "duration": "1 hr",
+        "persists": true,
+        "stacks": "Juju Might, and other +STR consumes",
+        "isFood": false,
+        "roles": ["melee", "tank"],
+        "classes": ["warrior", "paladin", "druid", "rogue", "hunter"]
+    },
+    {
+        "name": "Juju Power",
+        "effect": "+30str",
+        "duration": "30 min",
+        "persists": true,
+        "stacks": "R.O.I.D.S.",
+        "isFood": false,
+        "roles": ["melee", "tank"],
+        "classes": ["warrior", "paladin", "druid", "rogue", "hunter"]
+    },
+    {
+        "name": "Juju Flurry",
+        "effect": "+15% attack speed",
+        "duration": "20 sec",
+        "persists": false,
+        "stacks": "No",
+        "isFood": false,
+        "roles": ["melee", "ranged"],
+        "classes": ["warrior", "paladin", "druid", "rogue", "hunter"]
+    },
+    {
+        "name": "Blackroot Brew",
+        "effect": "+35 melee AP",
+        "duration": "20 min",
+        "persists": true,
+        "stacks": "Same as Winterfall Firewater",
+        "isFood": false,
+        "roles": ["melee", "ranged"],
+        "classes": ["warrior", "paladin", "druid", "rogue", "hunter"]
+    },
+    {
+        "name": "Juju Ember",
+        "effect": "+15 Fire Resistance",
+        "duration": "10 min",
+        "persists": false,
+        "stacks": "With Frozen Rune, Magic Resistance Potion, and other fire resistance buffs",
+        "isFood": false,
+        "roles": ["tank", "melee", "ranged", "healer"],
+        "classes": ["warlock", "priest", "mage", "druid", "shaman", "paladin", "warrior", "rogue", "hunter"]
+    },
+    {
+        "name": "Juju Chill",
+        "effect": "+15 Frost Resistance",
+        "duration": "10 min",
+        "persists": false,
+        "stacks": "With Frozen Rune, Magic Resistance Potion, and other frost resistance buffs",
+        "isFood": false,
+        "roles": ["tank", "melee", "ranged", "healer"],
+        "classes": ["warlock", "priest", "mage", "druid", "shaman", "paladin", "warrior", "rogue", "hunter"]
+    },
+    {
+        "name": "Smoked Desert Dumplings",
+        "effect": "+25 STR",
+        "duration": "10 min",
+        "persists": false,
+        "stacks": "R.O.I.D.S.",
+        "isFood": true,
+        "roles": ["tank", "melee"],
+        "classes": ["druid", "shaman", "paladin", "warrior", "rogue", "hunter"]
+    },
+    {
+        "name": "Dragonbreath Chili",
+        "effect": "Occasionally belch flame at enemies struck in melee for the next 10 min, dealing 50 to 70 fire damage.",
+        "duration": "10 min",
+        "persists": false,
+        "stacks": "No",
+        "isFood": true,
+        "roles": ["melee"],
+        "classes": ["warrior", "paladin", "druid", "shaman", "rogue", "hunter"]
+    },
+    {
+        "name": "Hardened Mushroom",
+        "effect": "+15% armor",
+        "duration": "15 min",
+        "persists": false,
+        "stacks": "No",
+        "isFood": true,
+        "roles": ["tank", "melee"],
+        "classes": ["druid", "shaman", "paladin", "warrior", "rogue", "hunter"]
+    },
+    {
+        "name": "Gurubashi Gumbo",
+        "effect": "+10 Stam +1% resilience",
+        "duration": "15 min",
+        "persists": false,
+        "stacks": "No",
+        "isFood": true,
+        "roles": ["tank", "melee"],
+        "classes": ["druid", "shaman", "paladin", "warrior", "rogue", "hunter"]
+    
+    },
+    {
+        "name": "Rumsey Rum Black Label",
+        "effect": "+15 Stamina",
+        "duration": "15 min",
+        "persists": false,
+        "stacks": "No",
+        "isFood": false,
+        "roles": ["tank", "melee", "ranged", "healer"],
+        "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+        "name": "Medivh's Merlot",
+        "effect": "+25 Stamina",
+        "duration": "15 min",
+        "persists": false,
+        "stacks": "with spirit of zanza",
+        "isFood": false,
+        "roles": ["tank", "melee", "ranged", "healer"],
+        "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+        "name": "Greater Stoneshield Potion",
+        "effect": "+2000 Armor",
+        "duration": "2 min",
+        "persists": false,
+        "stacks": "No",
+        "isFood": false,
+        "roles": ["tank"],
+        "classes": ["warrior", "paladin", "druid"]
+    },
+    {
+      "name": "Major Healing Potion",
+      "effect": "Restores 1350 to 2251 health.",
+      "duration": "Instant, 2min cooldown",
+      "persists": false,
+      "stacks": "Potions",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Lucidity Potion",
+      "effect": "Removes all movement impairing effects and all effects which cause loss of control of your character. Lasts 5 sec.",
+      "duration": "5 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+      "name": "Limited Invulnerability Potion",
+      "effect": "Grants immunity to all damage for 6 sec.",
+      "duration": "6 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+      "name": "Free Action Potion",
+      "effect": "Removes all movement impairing effects and all effects which cause loss of control of your character. Lasts 15 sec.",
+      "duration": "15 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+
+    },
+    {
+      "name": "Mighty Rage Potion",
+      "effect": "Grants 45-75 rage and 60 strength for 20 seconds.",
+      "duration": "20 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee"],
+      "classes": ["warrior", "druid"]
+    },
+    {
+      "name": "Great Rage Potion",
+      "effect": "Grants 30-60 rage",
+      "duration": "Instant, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee"],
+      "classes": ["warrior", "druid"]
+    },
+    {
+      "name": "Swiftness Potion",
+      "effect": "Increases movement speed by 50% for 15 sec.",
+      "duration": "15 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Invisibility Potion",
+      "effect": "Grants invisibility for 15 sec.",
+      "duration": "15 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Lesser Invisibility Potion",
+      "effect": "Grants invisibility for 10 sec.",
+      "duration": "10 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+      "name": "Potion of Quickness",
+      "effect": "5% haste for 30 sec.",
+      "duration": "30 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Greater Fire Protection Potion",
+      "effect": "Absorbs 1950 to 3251 fire damage. Lasts 1 hr.",
+      "duration": "1 hour, 2 min cooldown",
+      "persists": true,
+      "stacks": "Protection Potions",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Greater Nature Protection Potion",
+      "effect": "Absorbs 1950 to 3251 nature damage. Lasts 1 hr.",
+      "duration": "1 hour, 2 min cooldown",
+      "persists": true,
+      "stacks": "Protection Potions",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+
+    },
+    {
+      "name": "Greater Shadow Protection Potion",
+      "effect": "Absorbs 1950 to 3251 shadow damage. Lasts 1 hr.",
+      "duration": "1 hour, 2 min cooldown",
+      "persists": true,
+      "stacks": "Protection Potions",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Greater Arcane Protection Potion",
+      "effect": "Absorbs 1950 to 3251 arcane damage. Lasts 1 hr.",
+      "duration": "1 hour, 2 min cooldown",
+      "persists": true,
+      "stacks": "Protection Potions",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Greater Frost Protection Potion",
+      "effect": "Absorbs 1950 to 3251 frost damage. Lasts 1 hr.",
+      "duration": "1 hour, 2 min cooldown",
+      "persists": true,
+      "stacks": "Protection Potions",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Frozen Rune",
+      "effect": "Absorb 1500-2500 Fire damage. Lasts 1 hr.",
+      "duration": "1 hour, 2 min cooldown",
+      "persists": true,
+      "stacks": "With Juju Ember, Magic Resistance Potion, and other fire resistance buffs",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warlock", "priest", "mage", "druid", "shaman", "paladin", "warrior", "rogue", "hunter"]
+    },
+    {
+      "name": "Major Healing Salve",
+      "effect": "Heals user for 600 over 12 sec.",
+      "duration": "12 sec, 2 min cooldown",
+      "persists": false, 
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+      "name": "Nordanaar Herbal Tea",
+      "effect": "Heals for 1050-1751",
+      "duration": "Instant, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Consecrated Sharpening Stone",
+      "effect": "+100 AP against Undead for 1 hr.",
+      "duration": "1 hr",
+      "persists": true,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["melee", "tank"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+      "name": "Elemental Sharpening Stone",
+      "effect": "+2% critical strike chance for 1 hr.",
+      "duration": "1 hr",
+      "persists": true,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["melee", "tank"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+      "name": "Frost Oil",
+      "effect": "Frostbolt proc on hit, needed for Viscidius",
+      "duration": "30 min",
+      "persists": true,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["melee", "tank"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+      "name": "Goblin Sapper Charge",
+      "effect": "450-750 AoE Fire damage after 3 sec.",
+      "duration": "3 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["melee", "ranged"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+      "name": "Dense Dynamite",
+      "effect": "240-460 AoE Fire damage after 3 sec.",
+      "duration": "3 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["melee", "ranged"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+      "name": "Stratholme Holy Water",
+      "effect": "438-562 AoE Holy Damage",
+      "duration": "Instant, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["melee", "ranged"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+      "name": "Oil of Immolation",
+      "effect": "50 AoE Fire damage every 3 seconds for 15sec.",
+      "duration": "15 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["melee", "ranged"],
+      "classes": ["warrior", "paladin", "rogue", "hunter"]
+    },
+    {
+      "name": "Heavy Runecloth Bandage",
+      "effect": "Heals 2000 damage over 8 sec.",
+      "duration": "8 sec, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Flask of Distilled Wisdom",
+      "effect": "+2000 max mana for 1 hr.",
+      "duration": "1 hr",
+      "persists": true,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["ranged", "healer"],
+      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+    },
+    {
+      "name": "Cerebral Cortex Compound",
+      "effect": "+25 intellect for 1 hr.",
+      "duration": "1 hr",
+      "persists": true,
+      "stacks": "With other buffs",
+      "isFood": false,
+      "roles": ["ranged", "healer"],
+      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+    },
+    {
+      "name": "Demonic Rune",
+      "effect": "900-1500 mana, -600 to -1000 HP",
+      "duration": "Instant, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["ranged", "healer"],
+      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+    },
+    {
+      "name": "Dark Rune",
+      "effect": "900-1500 mana, -600 to -1000 HP",
+      "duration": "Instant, 2 min cooldown",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["ranged", "healer"],
+      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+    },
+    {
+      "name": "Juicy Striped Melon",
+      "effect": "+10 intellect for 10 min",
+      "duration": "10 min",
+      "persists": false,
+      "stacks": "No",
+      "isFood": true,
+      "roles": ["ranged", "healer"],
+      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+    },
+    {
+      "name": "Blessed Sunfruit Juice",
+      "effect": "+10 spirit for 10 min",
+      "duration": "10 min",
+      "persists": false,
+      "stacks": "No",
+      "isFood": true,
+      "roles": ["melee", "ranged", "healer"],
+      "classes": ["paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Medivh's Blue Merlot",
+      "effect": "+15 intellect for 15 min",
+      "duration": "15 min",
+      "persists": false,
+      "stacks": "With other buffs",
+      "isFood": false,
+      "roles": ["ranged", "healer"],
+      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+    },
+    {
+      "name": "Dreamtonic",
+      "effect": "+35 SP for 20 min",
+      "duration": "20 min",
+      "persists": false,
+      "stacks": "With other buffs",
+      "isFood": false,
+      "roles": ["ranged", "healer"],
+      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+    },
+    {
+      "name": "Major Troll's Blood Potion",
+      "effect": "20 HP/5sec for 1 hr.",
+      "duration": "1 hr",
+      "persists": true,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+    {
+      "name": "Elixir of Shadow Power",
+      "effect": "+40 shadow SP for 1 hr.",
+      "duration": "1 hr",
+      "persists": true,
+      "stacks": "With other buffs",
+      "isFood": false,
+      "roles": ["ranged"],
+      "classes": ["warlock", "priest"]
+    },
+    {
+      "name": "Elixir of Greater Fire Power",
+      "effect": "+40 fire SP for 1 hr.",
+      "duration": "1 hr",
+      "persists": true,
+      "stacks": "With other buffs",
+      "isFood": false,
+      "roles": ["ranged"],
+      "classes": ["mage", "shaman", "warlock"]
+    },
+    {
+      "name": "Elixir of Greater Nature Power",
+      "effect": "+40 nature SP for 1 hr.",
+      "duration": "1 hr",
+      "persists": true,
+      "stacks": "With other buffs",
+      "isFood": false,
+      "roles": ["ranged"],
+      "classes": ["druid", "shaman"]
+    },
+    {
+      "name": "Elixir of Frost Power",
+      "effect": "+40 frost SP for 1 hr.",
+      "duration": "1 hr",
+      "persists": true,
+      "stacks": "With other buffs",
+      "isFood": false,
+      "roles": ["ranged"],
+      "classes": ["mage"]
+    },
+    {
+      "name": "Raptor Punch",
+      "effect": "+4 int, -5 stamina for 5 min.",
+      "duration": "5 min",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["ranged", "healer"],
+      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+    },
+    {
+      "name": "Blessed Wizard Oil",
+      "effect": "+60 SP to undead",
+      "duration": "1 hour",
+      "persists": false,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["ranged"],
+      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+    },
+    {
+      "name": "Flask of Supreme Power",
+      "effect": "+150 SP for 2 hr.",
+      "duration": "2 hr",
+      "persists": true,
+      "stacks": "No",
+      "isFood": false,
+      "roles": ["ranged"],
+      "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
+    }
+
+]
