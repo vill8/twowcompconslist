@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turtle WoW Food Buffs Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="food-style.css">
+</head>
+<body>
+    <header class="main-header">
+        <img src="https://turtlecraft.gg/build/assets/turtlewow_logo_lettering-CxbXgOXB.png" alt="Turtle WoW Logo" class="logo">
+        <h1>Turtle WoW Food Buffs</h1>
+        <a href="index.html" class="nav-button">Back to Consumables</a>
+    </header>
+
+    <div class="container">
+<aside class="sidebar">
+    <div class="control-group">
+        <label for="stat-filter">Filter by Stat</label>
+        <select id="stat-filter">
+            <option value="all">All Stats</option>
+            <option value="stamina">Stamina</option>
+            <option value="intellect">Intellect</option>
+            <option value="agility">Agility</option>
+            <option value="strength">Strength</option>
+            <option value="spirit">Spirit</option>
+            <option value="mp5">MP5 / Mana</option>
+            <option value="special">Special (Haste/Crit/Damage)</option>
+            <option value="SP">Spell Power</option>
+            <option value="MIXED">Mixed (Multiple Stats)</option>
+            <option value="HEALING">Healing Power</option>
+        </select>
+    </div>
+
+    <div class="control-group">
+        <label for="food-search">Search consumables</label>
+        <input type="text" id="food-search" placeholder="Search by name...">
+    </div>
+</aside>
+
+        <main class="content">
+            <h2 id="table-title">Available Food Buffs</h2>
+            <div class="table-container">
+                <table id="food-table">
+                    <thead>
+                        <tr>
+                            <th>Food Item</th>
+                            <th>Buff Effect</th>
+                            <th>Stat Type</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="food-script.js"></script>
+</body>
+</html>

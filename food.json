@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Danonzo's Tel'Abim Medley",
+    "buff": "Gain 2% Haste for 15 min.",
+    "statType": "special",
+    "duration": "15 min"
+  },
+  {
+    "name": "Le Fishe Au Chocolat",
+    "buff": "Gain 10 Agility for 15 min.",
+    "statType": "agility",
+    "duration": "15 min"
+  },
+  {
+    "name": "Gurubashi Gumbo",
+    "buff": "Gain 10 Stamina and 1% reduced chance to be crit for 15 min.",
+    "statType": "stamina",
+    "duration": "15 min"
+  },
+  {
+    "name": "Dirge's Kickin' Chimaerok Chops",
+    "buff": "Increases Stamina by 25 for 15 min.",
+    "statType": "stamina",
+    "duration": "15 min"
+  },
+  {
+    "name": "Nightfin Soup",
+    "buff": "Restores 8 mana every 5 seconds for 10 min.",
+    "statType": "mp5",
+    "duration": "10 min"
+  },
+  {
+    "name": "Baked Salmon",
+    "buff": "Gain 14 sttamina and 14 spirit for 15 min.",
+    "statType": "mixed",
+    "duration": "15 min"
+  },
+  {
+    "name": "Hardened Mushroom",
+    "buff": "Gain 25 Stamina for 15 min.",
+    "statType": "stamina",
+    "duration": "15 min"
+  },
+  {
+    "name": "Danonzo's Tel'Abim Delight",
+    "buff": "Gain 22 spell damage for 15 min.",
+    "statType": "SP",
+    "duration": "15 min"
+  },
+  {
+    "name": "Empowering Herbal Salad",
+    "buff": "Gain 24 healing power for 15 min.",
+    "statType": "healing",
+    "duration": "15 min"
+
+  },
+  {
+    "name": "Smoked Desert Dumplings",
+    "buff": "Gain 20 strength for 15 min.",
+    "statType": "strength",
+    "duration": "15 min"
+  },
+  {
+    "name": "Runn Tum Tuber Surprise",
+    "buff": "Gain 10 intellect for 15 min.",
+    "statType": "intellect",
+    "duration": "15 min"
+  },
+  {
+    "name": "Mightfish Steak",
+    "buff": "Gain 20 strength for 15 min.",
+    "statType": "strength",
+    "duration": "15 min"
+  },
+  {
+    "name": "Lobster Stew",
+    "buff": "Gain 14 stamina and spirit for 15 min.",
+    "statType": "mixed",
+    "duration": "15 min"
+  },
+  {
+    "name": "Poached Sunscale Salmon",
+    "buff": "Restores 6 health points every 5 seconds for 10 min.",
+    "statType": "hp5",
+    "duration": "10 min"
+  },
+  {
+    "name": "Hot Smoked Bass",
+    "buff": "Gain 30 spirit for 15 min.",
+    "statType": "spirit",
+    "duration": "15 min"
+  },
+  {
+    "name": "Grilled Squid",
+    "buff": "Gain 10 Agility for 10 min.",
+    "statType": "agility",
+    "duration": "10 min"
+  }
+]
