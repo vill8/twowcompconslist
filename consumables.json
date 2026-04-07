@@ -772,6 +772,55 @@
       "isFood": false,
       "roles": ["ranged"],
       "classes": ["mage", "warlock", "priest", "druid", "shaman", "paladin"]
-    }
-
+    },
+    {
+      "name": "Sapta of Communion",
+      "effect": "Increases Nature Resistance by 35 for 20 minutes.",
+      "duration": "20 min",
+      "persists": false,
+      "stacks": "With other buffs",
+      "isFood": false,
+      "roles": ["tank", "melee", "ranged", "healer"],
+      "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+    },
+{
+      "name": "Sapta of Harmony",
+      "effect": "Increases critical strike chance with Nature spells and abilities by 2% for 20 minutes.",
+      "duration": "20 min",
+      "persists": false,
+      "stacks": "With other buffs",
+      "isFood": false,
+      "roles": ["ranged"],
+      "classes": ["druid", "shaman"]
+    },
+    {
+      "name": "Sapta of Kinship",
+      "effect": "Increases Spirit by 35 for 20 minutes.",
+      "duration": "20 min",
+      "persists": false,
+      "stacks": "With other buffs",
+      "isFood": false,
+      "roles": ["healer"],
+      "classes": ["druid", "shaman", "priest", "paladin"]
+    },
+{
+  "name": "Sapta of Resilience",
+  "effect": "Grants a 10% chance to resist poison for 20 minutes.",
+  "duration": "20 min",
+  "persists": false,
+  "stacks": "With other buffs",
+  "isFood": false,
+  "roles": ["tank", "melee", "ranged", "healer"],
+  "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+},
+{
+  "name": "Sapta of Tranqulity",
+  "effect": "Increases movement speed by 5% for 20 minutes.",
+  "duration": "20 min",
+  "persists": false,
+  "stacks": "With other buffs",
+  "isFood": false,
+  "roles": ["tank", "melee", "ranged", "healer"],
+  "classes": ["warrior", "paladin", "rogue", "hunter", "mage", "warlock", "priest", "druid", "shaman"]
+}
 ]
