@@ -260,3 +260,22 @@ input[type="text"]::placeholder {
     color: #fff;
     border-color: var(--wow-gold);
 }
+.wow-tooltip {
+    background: #070c21;
+    border: 1px solid #777;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    max-width: 300px;
+    z-index: 1000;
+}
+.tooltip-title {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+.tooltip-sub {
+    color: #ffd100;
+    font-size: 0.9rem;
+}

@@ -97,18 +97,49 @@ function updateTable() {
         return;
     }
 
-    filteredData.forEach(item => {
-        const tr = document.createElement('tr');
-        const dbUrl = `https://database.turtlecraft.gg/?search=${encodeURIComponent(item.name)}`;
-        tr.innerHTML = `
-            <td><a href="${dbUrl}" target="_blank" rel="noopener noreferrer">${item.name}</a></td>
-            <td>${item.effect}</td>
-            <td>${item.duration}</td>
-            <td>${item.persists ? "Yes" : "No"}</td>
-            
+filteredData.forEach(item => {
+    const tr = document.createElement('tr');
+    
+    const nameLink = document.createElement('a');
+    nameLink.href = `https://database.turtlecraft.gg/?search=${encodeURIComponent(item.name)}`;
+    nameLink.target = "_blank";
+    nameLink.textContent = item.name;
+
+    // Show Tooltip
+    nameLink.addEventListener('mouseenter', () => {
+        const tooltipEl = document.getElementById('wow-tooltip'); // Define inside or ensure global access
+        tooltipEl.style.display = 'block';
+        tooltipEl.innerHTML = `
+            <div class="tooltip-title">${item.name}</div>
+            <div class="tooltip-sub">${item.duration} Duration</div>
+            <div class="tooltip-effect" style="color: #ffd100; margin-top: 8px;">${item.effect}</div>
+            <div class="tooltip-sub" style="margin-top: 8px; color: #aaa; font-size: 0.85rem;"></div>
         `;
-        tableBody.appendChild(tr);
     });
+
+    // Move Tooltip
+    nameLink.addEventListener('mousemove', (e) => {
+        const tooltipEl = document.getElementById('wow-tooltip');
+        tooltipEl.style.left = (e.clientX + 15) + 'px';
+        tooltipEl.style.top = (e.clientY + 15) + 'px';
+    });
+
+    // Hide Tooltip
+    nameLink.addEventListener('mouseleave', () => {
+        const tooltipEl = document.getElementById('wow-tooltip');
+        tooltipEl.style.display = 'none';
+    });
+
+    tr.innerHTML = `
+        <td class="item-name-cell"></td> 
+        <td>${item.effect}</td>
+        <td>${item.duration}</td>
+        <td>${item.persists ? "Yes" : "No"}</td>
+    `;
+    
+    tr.querySelector('.item-name-cell').appendChild(nameLink);
+    tableBody.appendChild(tr);
+});
 }
 
 // 6. Event Listeners
