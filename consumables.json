@@ -228,7 +228,7 @@
         "stacks": "Juju Might, and other +STR consumes",
         "isFood": false,
         "roles": ["melee", "tank"],
-        "classes": ["warrior", "paladin", "druid", "rogue", "hunter"]
+        "classes": ["warrior", "paladin", "druid", "hunter"]
     },
     {
         "name": "Juju Power",
