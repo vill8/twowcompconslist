@@ -1,6 +1,7 @@
 [
   {
     "name": "Spirit of Zanza",
+    "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Increases the player's Spirit by 50 and Stamina by 50 for 2 hr.",
     "duration": "2 hours",
     "persists": true,
@@ -11,6 +12,7 @@
   },
   {
     "name": "Elixir of the Mongoose",
+    "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Increases Agility by 25 and chance to get a critical hit by 2% for 1 hr.",
     "duration": "1 hour",
     "persists": true,
@@ -21,6 +23,7 @@
   },
   {
     "name": "Greater Arcane Elixir",
+    "tier": ["tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Increases spell damage by up to 35 for 30 min.",
     "duration": "30 min",
     "persists": true,
@@ -31,6 +34,7 @@
   },
   {
     "name": "Mageblood Potion",
+    "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Regenerate 12 mana per 5 sec for 1 hour.",
     "duration": "1 hour",
     "persists": true,
@@ -41,6 +45,7 @@
   },
   {
     "name": "Dreamshard Elixir",
+    "tier": ["tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Grants 2% spell critical and 15 spell damage and healing for 1 hr.",
     "duration": "1 hour",
     "persists": true,
@@ -51,6 +56,7 @@
   },
   {
     "name": "Elixir of Superior Defense",
+    "tier": ["tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Increases armor by 450 for 1 hr.",
     "duration": "1 hour",
     "persists": true,
@@ -61,6 +67,7 @@
   },
   {
     "name": "Juju Might",
+    "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Increases your attack power by 40 for 10 min.",
     "duration": "10 min",
     "persists": false,
@@ -71,6 +78,7 @@
   },
   {
     "name": "Winterfall Firewater",
+    "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Increases your melee attack power by 35 and size for 20 min.",
     "duration": "20 min",
     "persists": false,
@@ -81,6 +89,7 @@
   },
   {
     "name": "Danonzo's Tel'Abim Medley",
+    "tier": ["tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Gain 2% Haste for 15 min.",
     "duration": "15 min",
     "persists": false,
@@ -91,6 +100,7 @@
   },
   {
     "name": "Le Fishe Au Chocolat",
+    "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Gain 1% dodge and 4 defense for 15 min.",
     "duration": "15 min",
     "persists": false,
@@ -101,6 +111,7 @@
   },
   {
     "name": "Danonzo's Tel'Abim Delight",
+    "tier": ["tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Gain 22 spell damage for 15 min.",
     "duration": "15 min",
     "persists": false,
@@ -111,6 +122,7 @@
   },
   {
     "name": "Nightfin Soup",
+    "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Restores 8 Mana every 5 seconds for 10 min.",
     "duration": "10 min",
     "persists": false,
@@ -121,6 +133,7 @@
   },
   {
     "name": "Greater Fire Protection Potion",
+    "tier": ["tier1", "tier2", "tier3", "tier3.5"],
     "effect": "Absorbs 1950 to 3251 fire damage. Lasts 1 hr.",
     "duration": "1 hour",
     "persists": true,
@@ -131,6 +144,7 @@
   },
   {
     "name": "Major Mana Potion",
+    "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Restores 1350 to 2251 mana.",
     "duration": "Instant",
     "persists": false,
@@ -141,6 +155,7 @@
   },
   {
     "name": "Brilliant Wizard Oil",
+    "tier": ["tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Increases spell damage by up to 36 and increases Spell Critical chance by 1%.",
     "duration": "30 min",
     "persists": true,
@@ -151,6 +166,7 @@
   },
   {
     "name": "Brilliant Mana Oil",
+    "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
     "effect": "Increases mana regeneration by 10 per 5 sec and increases Spell Critical chance by 1%.",
     "duration": "30 min",
     "persists": true,
@@ -161,6 +177,7 @@
   },
     {
         "name": "Sweet Mountain Berry",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "Increase you agility by 10 for 10 min",
         "duration": "10 min",
         "persists": false,
@@ -171,6 +188,7 @@
     },
     {
         "name": "Flask of the Titans",
+        "tier": ["tier3", "tier3.5"],
         "effect": "Increases maximum health by 1000 for 1 hr.",
         "duration": "1 hour",
         "persists": true,
@@ -181,6 +199,7 @@
     },
     {
         "name": "Elixir of Fortitude",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "Increases maximum health by 250 for 1 hr.",
         "duration": "1 hour",
         "persists": true,
@@ -191,6 +210,7 @@
     },
     {
         "name": "Scroll of Protection IV",
+        "tier": ["tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "Increases armor by 500 for 30 min.",
         "duration": "30 min",
         "persists": true,
@@ -201,6 +221,7 @@
     },
     {
         "name": "Gift of Arthas",
+        "tier": ["tier2.5", "tier3", "tier3.5"],
         "effect": "+10 shadow resistance, attacker has 30% chance of getting disease that increases damage taken by 8 for 180s.",
         "duration": "3 min",
         "persists": false,
@@ -212,6 +233,7 @@
     },
     {
         "name": "Ground Scorpok Assay",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "+25 AGI",
         "duration": "1 hr",
         "persists": true,
@@ -222,6 +244,7 @@
     },
     {
         "name": "R.O.I.D.S.",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "+25 STR",
         "duration": "1 hr",
         "persists": true,
@@ -232,6 +255,7 @@
     },
     {
         "name": "Juju Power",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "+30str",
         "duration": "30 min",
         "persists": true,
@@ -242,6 +266,7 @@
     },
     {
         "name": "Juju Flurry",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "+15% attack speed",
         "duration": "20 sec",
         "persists": false,
@@ -252,6 +277,7 @@
     },
     {
         "name": "Blackroot Brew",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "+35 melee AP",
         "duration": "20 min",
         "persists": true,
@@ -262,6 +288,7 @@
     },
     {
         "name": "Juju Ember",
+        "tier": ["tier1", "tier2", "tier3", "tier3.5"],
         "effect": "+15 Fire Resistance",
         "duration": "10 min",
         "persists": false,
@@ -272,6 +299,7 @@
     },
     {
         "name": "Juju Chill",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "+15 Frost Resistance",
         "duration": "10 min",
         "persists": false,
@@ -282,6 +310,7 @@
     },
     {
         "name": "Smoked Desert Dumplings",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "+25 STR",
         "duration": "10 min",
         "persists": false,
@@ -292,6 +321,7 @@
     },
     {
         "name": "Dragonbreath Chili",
+        "tier": ["tier2.5", "tier3", "tier3.5"],
         "effect": "Occasionally belch flame at enemies struck in melee for the next 10 min, dealing 50 to 70 fire damage.",
         "duration": "10 min",
         "persists": false,
@@ -302,7 +332,8 @@
     },
     {
         "name": "Hardened Mushroom",
-        "effect": "+15% armor",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
+        "effect": "+25 Stamina",
         "duration": "15 min",
         "persists": false,
         "stacks": "No",
@@ -312,6 +343,7 @@
     },
     {
         "name": "Gurubashi Gumbo",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "+10 Stam +1% resilience",
         "duration": "15 min",
         "persists": false,
@@ -323,6 +355,7 @@
     },
     {
         "name": "Rumsey Rum Black Label",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "+15 Stamina",
         "duration": "15 min",
         "persists": false,
@@ -333,6 +366,7 @@
     },
     {
         "name": "Medivh's Merlot",
+        "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
         "effect": "+25 Stamina",
         "duration": "15 min",
         "persists": false,
@@ -343,6 +377,7 @@
     },
     {
         "name": "Greater Stoneshield Potion",
+        "tier": ["tier3", "tier3.5"],
         "effect": "+2000 Armor",
         "duration": "2 min",
         "persists": false,
@@ -353,6 +388,7 @@
     },
     {
       "name": "Major Healing Potion",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Restores 1350 to 2251 health.",
       "duration": "Instant, 2min cooldown",
       "persists": false,
@@ -363,6 +399,7 @@
     },
     {
       "name": "Lucidity Potion",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Removes all movement impairing effects and all effects which cause loss of control of your character. Lasts 5 sec.",
       "duration": "5 sec, 2 min cooldown",
       "persists": false,
@@ -373,6 +410,7 @@
     },
     {
       "name": "Limited Invulnerability Potion",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Grants immunity to all damage for 6 sec.",
       "duration": "6 sec, 2 min cooldown",
       "persists": false,
@@ -383,6 +421,7 @@
     },
     {
       "name": "Free Action Potion",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Removes all movement impairing effects and all effects which cause loss of control of your character. Lasts 15 sec.",
       "duration": "15 sec, 2 min cooldown",
       "persists": false,
@@ -394,6 +433,7 @@
     },
     {
       "name": "Mighty Rage Potion",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Grants 45-75 rage and 60 strength for 20 seconds.",
       "duration": "20 sec, 2 min cooldown",
       "persists": false,
@@ -404,6 +444,7 @@
     },
     {
       "name": "Great Rage Potion",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Grants 30-60 rage",
       "duration": "Instant, 2 min cooldown",
       "persists": false,
@@ -414,6 +455,7 @@
     },
     {
       "name": "Swiftness Potion",
+      "tier": ["tier3", "tier3.5"],
       "effect": "Increases movement speed by 50% for 15 sec.",
       "duration": "15 sec, 2 min cooldown",
       "persists": false,
@@ -424,6 +466,7 @@
     },
     {
       "name": "Invisibility Potion",
+      "tier": ["tier1", "tier2", "tier2.5"],
       "effect": "Grants invisibility for 15 sec.",
       "duration": "15 sec, 2 min cooldown",
       "persists": false,
@@ -434,6 +477,7 @@
     },
     {
       "name": "Lesser Invisibility Potion",
+      "tier": ["tier1", "tier2", "tier2.5"],
       "effect": "Grants invisibility for 10 sec.",
       "duration": "10 sec, 2 min cooldown",
       "persists": false,
@@ -444,6 +488,7 @@
     },
     {
       "name": "Potion of Quickness",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "5% haste for 30 sec.",
       "duration": "30 sec, 2 min cooldown",
       "persists": false,
@@ -454,6 +499,7 @@
     },
     {
       "name": "Greater Fire Protection Potion",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Absorbs 1950 to 3251 fire damage. Lasts 1 hr.",
       "duration": "1 hour, 2 min cooldown",
       "persists": true,
@@ -464,6 +510,7 @@
     },
     {
       "name": "Greater Nature Protection Potion",
+      "tier": ["tier2.5", "tier3", "tier3.5"],
       "effect": "Absorbs 1950 to 3251 nature damage. Lasts 1 hr.",
       "duration": "1 hour, 2 min cooldown",
       "persists": true,
@@ -475,6 +522,7 @@
     },
     {
       "name": "Greater Shadow Protection Potion",
+      "tier": ["tier2.5", "tier3", "tier3.5"],
       "effect": "Absorbs 1950 to 3251 shadow damage. Lasts 1 hr.",
       "duration": "1 hour, 2 min cooldown",
       "persists": true,
@@ -485,6 +533,7 @@
     },
     {
       "name": "Greater Arcane Protection Potion",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Absorbs 1950 to 3251 arcane damage. Lasts 1 hr.",
       "duration": "1 hour, 2 min cooldown",
       "persists": true,
@@ -495,6 +544,7 @@
     },
     {
       "name": "Greater Frost Protection Potion",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Absorbs 1950 to 3251 frost damage. Lasts 1 hr.",
       "duration": "1 hour, 2 min cooldown",
       "persists": true,
@@ -505,6 +555,7 @@
     },
     {
       "name": "Frozen Rune",
+      "tier": ["tier3", "tier3.5"],
       "effect": "Absorb 1500-2500 Fire damage. Lasts 1 hr.",
       "duration": "1 hour, 2 min cooldown",
       "persists": true,
@@ -515,6 +566,7 @@
     },
     {
       "name": "Major Healing Salve",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Heals user for 600 over 12 sec.",
       "duration": "12 sec, 2 min cooldown",
       "persists": false, 
@@ -525,6 +577,7 @@
     },
     {
       "name": "Nordanaar Herbal Tea",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Heals for 1050-1751",
       "duration": "Instant, 2 min cooldown",
       "persists": false,
@@ -535,6 +588,7 @@
     },
     {
       "name": "Consecrated Sharpening Stone",
+      "tier": ["tier3", "tier3.5"],
       "effect": "+100 AP against Undead for 1 hr.",
       "duration": "1 hr",
       "persists": true,
@@ -545,6 +599,7 @@
     },
     {
       "name": "Elemental Sharpening Stone",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "+2% critical strike chance for 1 hr.",
       "duration": "1 hr",
       "persists": true,
@@ -555,6 +610,7 @@
     },
     {
       "name": "Frost Oil",
+      "tier": "tier2.5",
       "effect": "Frostbolt proc on hit, needed for Viscidius",
       "duration": "30 min",
       "persists": true,
@@ -565,6 +621,7 @@
     },
     {
       "name": "Goblin Sapper Charge",
+      "tier": ["tier2.5", "tier3", "tier3.5"],
       "effect": "450-750 AoE Fire damage after 3 sec.",
       "duration": "3 sec, 2 min cooldown",
       "persists": false,
@@ -575,6 +632,7 @@
     },
     {
       "name": "Dense Dynamite",
+      "tier": ["tier2.5", "tier3", "tier3.5"],
       "effect": "240-460 AoE Fire damage after 3 sec.",
       "duration": "3 sec, 2 min cooldown",
       "persists": false,
@@ -585,6 +643,7 @@
     },
     {
       "name": "Stratholme Holy Water",
+      "tier": "tier3",
       "effect": "438-562 AoE Holy Damage",
       "duration": "Instant, 2 min cooldown",
       "persists": false,
@@ -595,6 +654,7 @@
     },
     {
       "name": "Oil of Immolation",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "50 AoE Fire damage every 3 seconds for 15sec.",
       "duration": "15 sec, 2 min cooldown",
       "persists": false,
@@ -605,6 +665,7 @@
     },
     {
       "name": "Heavy Runecloth Bandage",
+      "tier": ["tier2.5", "tier3", "tier3.5"],
       "effect": "Heals 2000 damage over 8 sec.",
       "duration": "8 sec, 2 min cooldown",
       "persists": false,
@@ -615,6 +676,7 @@
     },
     {
       "name": "Flask of Distilled Wisdom",
+      "tier": ["tier3", "tier3.5"],
       "effect": "+2000 max mana for 1 hr.",
       "duration": "1 hr",
       "persists": true,
@@ -625,6 +687,7 @@
     },
     {
       "name": "Cerebral Cortex Compound",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "+25 intellect for 1 hr.",
       "duration": "1 hr",
       "persists": true,
@@ -635,6 +698,7 @@
     },
     {
       "name": "Demonic Rune",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "900-1500 mana, -600 to -1000 HP",
       "duration": "Instant, 2 min cooldown",
       "persists": false,
@@ -645,6 +709,7 @@
     },
     {
       "name": "Dark Rune",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "900-1500 mana, -600 to -1000 HP",
       "duration": "Instant, 2 min cooldown",
       "persists": false,
@@ -655,6 +720,7 @@
     },
     {
       "name": "Juicy Striped Melon",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "+10 intellect for 10 min",
       "duration": "10 min",
       "persists": false,
@@ -665,6 +731,7 @@
     },
     {
       "name": "Blessed Sunfruit Juice",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "+10 spirit for 10 min",
       "duration": "10 min",
       "persists": false,
@@ -675,6 +742,7 @@
     },
     {
       "name": "Medivh's Blue Merlot",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "+15 intellect for 15 min",
       "duration": "15 min",
       "persists": false,
@@ -685,6 +753,7 @@
     },
     {
       "name": "Dreamtonic",
+      "tier": ["tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "+35 SP for 20 min",
       "duration": "20 min",
       "persists": false,
@@ -695,6 +764,7 @@
     },
     {
       "name": "Major Troll's Blood Potion",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "20 HP/5sec for 1 hr.",
       "duration": "1 hr",
       "persists": true,
@@ -705,6 +775,7 @@
     },
     {
       "name": "Elixir of Shadow Power",
+      "tier": ["tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "+40 shadow SP for 1 hr.",
       "duration": "1 hr",
       "persists": true,
@@ -715,6 +786,7 @@
     },
     {
       "name": "Elixir of Greater Fire Power",
+      "tier": ["tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "+40 fire SP for 1 hr.",
       "duration": "1 hr",
       "persists": true,
@@ -725,6 +797,7 @@
     },
     {
       "name": "Elixir of Greater Nature Power",
+      "tier": ["tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "+40 nature SP for 1 hr.",
       "duration": "1 hr",
       "persists": true,
@@ -735,6 +808,7 @@
     },
     {
       "name": "Elixir of Frost Power",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "+40 frost SP for 1 hr.",
       "duration": "1 hr",
       "persists": true,
@@ -745,6 +819,7 @@
     },
     {
       "name": "Raptor Punch",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "+4 int, -5 stamina for 5 min.",
       "duration": "5 min",
       "persists": false,
@@ -755,6 +830,7 @@
     },
     {
       "name": "Blessed Wizard Oil",
+      "tier": ["tier3", "tier3.5"],
       "effect": "+60 SP to undead",
       "duration": "1 hour",
       "persists": false,
@@ -765,6 +841,7 @@
     },
     {
       "name": "Flask of Supreme Power",
+      "tier": ["tier3", "tier3.5"],
       "effect": "+150 SP for 2 hr.",
       "duration": "2 hr",
       "persists": true,
@@ -775,6 +852,7 @@
     },
     {
       "name": "Sapta of Communion",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Increases Nature Resistance by 35 for 20 minutes.",
       "duration": "20 min",
       "persists": false,
@@ -785,6 +863,7 @@
     },
 {
       "name": "Sapta of Harmony",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Increases critical strike chance with Nature spells and abilities by 2% for 20 minutes.",
       "duration": "20 min",
       "persists": false,
@@ -795,6 +874,7 @@
     },
     {
       "name": "Sapta of Kinship",
+      "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
       "effect": "Increases Spirit by 35 for 20 minutes.",
       "duration": "20 min",
       "persists": false,
@@ -805,6 +885,7 @@
     },
 {
   "name": "Sapta of Resilience",
+  "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
   "effect": "Grants a 10% chance to resist poison for 20 minutes.",
   "duration": "20 min",
   "persists": false,
@@ -815,6 +896,7 @@
 },
 {
   "name": "Sapta of Tranqulity",
+  "tier": ["tier1", "tier2", "tier2.5", "tier3", "tier3.5"],
   "effect": "Increases movement speed by 5% for 20 minutes.",
   "duration": "20 min",
   "persists": false,

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumables by Raid Tier - Turtle WoW</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <img src="https://turtlecraft.gg/build/assets/turtlewow_logo_lettering-CxbXgOXB.png" alt="Turtle WoW Logo" class="logo">
+        <h1>Raid Tier Progression List</h1>
+        <a href="index.html" class="nav-button">Back to Main List</a>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+    <div class="control-group">
+        <label for="class-select">Pick your class</label>
+        <select id="class-select">
+            <option value="all">All Classes</option>
+            <option value="warrior">Warrior</option>
+            <option value="mage">Mage</option>
+            <option value="rogue">Rogue</option>
+            <option value="priest">Priest</option>
+            <option value="hunter">Hunter</option>
+            <option value="warlock">Warlock</option>
+            <option value="druid">Druid</option>
+            <option value="shaman">Shaman</option>
+            <option value="paladin">Paladin</option>
+        </select>
+    </div>
+
+    <div class="control-group">
+        <label for="role-select">Pick your role</label>
+        <select id="role-select">
+            <option value="all">All Roles</option>
+            </select>
+    </div>
+
+    <div class="control-group">
+        <label for="tier-select">Select Raid Tier</label>
+        <select id="tier-select">
+            <option value="all">All Tiers</option>
+            <option value="tier1">Tier 1: MC / ZG / AQ20 / LKH</option>
+            <option value="tier2">Tier 2: BWL / Onyxia</option>
+            <option value="tier2.5">Tier 2.5: AQ40 / ES / TH</option>
+            <option value="tier3">Tier 3: Naxxramas</option>
+            <option value="tier3.5">Tier 3.5: UKH</option>
+        </select>
+    </div>
+
+    <div class="control-group">
+        <label for="tier-search">Search in Tier</label>
+        <input type="text" id="tier-search" placeholder="Search by name...">
+    </div>
+</aside>
+
+        <main class="content">
+            <h2 id="table-title">Consumables for Selected Tier</h2>
+            <div class="table-container">
+                <table id="consumables-table">
+                    <thead>
+                        <tr>
+                            <th>Consumable</th>
+                            <th>Effect</th>
+                            <th>Duration</th>
+                            <th>Persists through death</th>
+                            <th>Stacks with</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="tier-script.js"></script>
+</body>
+</html>

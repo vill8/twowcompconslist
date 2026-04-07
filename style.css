@@ -224,3 +224,39 @@ input[type="text"]::placeholder {
     color: #555;
     font-style: italic;
 }
+.main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+/* Container to align buttons side by side */
+.header-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between the buttons */
+    margin-top: 15px;
+    flex-wrap: wrap; /* Allows buttons to stack on very small mobile screens */
+}
+
+/* Ensure buttons have a consistent look */
+.nav-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--wow-panel);
+    border: 1px solid var(--wow-border);
+    color: var(--wow-gold);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.nav-button:hover {
+    background: var(--wow-border);
+    color: #fff;
+    border-color: var(--wow-gold);
+}
