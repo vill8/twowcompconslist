@@ -2,6 +2,8 @@
  * Turtle WoW Tier Progression - Data Handler
  */
 let consumablesData = [];
+const REFRESH_INTERVAL_MS = 60000;
+const GOOGLE_SHEET_CSV_URL = window.CONSUMABLES_SHEET_CSV_URL || null;
 
 // 1. Data Mappings for Roles
 const classRoles = {
@@ -46,17 +48,122 @@ function updateRoleMenu() {
 }
 
 // 4. Load Data
+function parseBoolean(value) {
+    return String(value).trim().toLowerCase() === 'true';
+}
+
+function parseList(value) {
+    if (!value) return [];
+    return String(value)
+        .split(/[|,;]/)
+        .map(v => v.trim().toLowerCase())
+        .filter(Boolean);
+}
+
+function normalizeHeader(header) {
+    return String(header || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function getField(record, aliases) {
+    for (const alias of aliases) {
+        const value = record[alias];
+        if (value !== undefined && String(value).trim() !== '') {
+            return value;
+        }
+    }
+    return '';
+}
+
+function parseId(value) {
+    const id = String(value || '').trim();
+    return /^\d+$/.test(id) ? id : '';
+}
+
+function buildDatabaseUrl(item) {
+    if (item.id) {
+        return `https://database.turtlecraft.gg/?item=${encodeURIComponent(item.id)}`;
+    }
+    return `https://database.turtlecraft.gg/?search=${encodeURIComponent(item.name)}`;
+}
+
+function parseCsvLine(line) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+
+    for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        const next = line[i + 1];
+
+        if (char === '"') {
+            if (inQuotes && next === '"') {
+                current += '"';
+                i++;
+            } else {
+                inQuotes = !inQuotes;
+            }
+        } else if (char === ',' && !inQuotes) {
+            result.push(current.trim());
+            current = '';
+        } else {
+            current += char;
+        }
+    }
+
+    result.push(current.trim());
+    return result;
+}
+
+function parseSheetCsv(text) {
+    const rows = text.split(/\r?\n/).filter(line => line.trim().length > 0);
+    if (rows.length < 2) return [];
+
+    const headers = parseCsvLine(rows[0]).map(normalizeHeader);
+
+    return rows.slice(1).map(row => {
+        const values = parseCsvLine(row);
+        const record = {};
+
+        headers.forEach((header, index) => {
+            record[header] = values[index] ?? '';
+        });
+
+        return {
+            id: parseId(getField(record, ['id', 'itemid', 'item'])),
+            name: getField(record, ['name', 'itemname']),
+            tier: parseList(getField(record, ['tier', 'tiers', 'raidtier'])),
+            effect: getField(record, ['effect', 'buff', 'description']),
+            duration: getField(record, ['duration', 'length']),
+            persists: parseBoolean(getField(record, ['persists', 'persiststhroughdeath', 'deathpersist'])),
+            stacks: getField(record, ['stacks', 'stacking', 'stackingnotes']),
+            isFood: parseBoolean(getField(record, ['isfood', 'food', 'fooditem'])),
+            roles: parseList(getField(record, ['roles', 'role'])),
+            classes: parseList(getField(record, ['classes', 'class']))
+        };
+    }).filter(item => item.name);
+}
+
 async function loadTierData() {
     try {
-        const response = await fetch('consumables.json');
-        if (!response.ok) throw new Error('Could not find consumables.json');
-        consumablesData = await response.json();
+        if (GOOGLE_SHEET_CSV_URL) {
+            const response = await fetch(GOOGLE_SHEET_CSV_URL, { cache: 'no-store' });
+            if (!response.ok) throw new Error('Could not load Google Sheet CSV');
+            const csvText = await response.text();
+            consumablesData = parseSheetCsv(csvText);
+            if (consumablesData.length === 0) {
+                throw new Error('Google Sheet returned no rows');
+            }
+        } else {
+            const response = await fetch('consumables.json');
+            if (!response.ok) throw new Error('Could not find consumables.json');
+            consumablesData = await response.json();
+        }
         // Initialize the table once data is loaded
         updateTable();
     } catch (error) {
         console.error('Error loading tier data:', error);
         if (tableBody) {
-            tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:red;">Error loading data. Check if consumables.json exists.</td></tr>`;
+            tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:red;">Error loading data from Google Sheet or local JSON.</td></tr>`;
         }
     }
 }
@@ -98,7 +205,7 @@ function updateTable() {
         const tr = document.createElement('tr');
         
         const nameLink = document.createElement('a');
-        nameLink.href = `https://database.turtlecraft.gg/?search=${encodeURIComponent(item.name)}`;
+        nameLink.href = buildDatabaseUrl(item);
         nameLink.target = "_blank";
         nameLink.textContent = item.name;
 
@@ -134,6 +241,7 @@ function updateTable() {
             <td>${item.effect}</td>
             <td>${item.duration}</td>
             <td>${item.persists ? "Yes" : "No"}</td>
+            <td>${item.stacks || ''}</td>
         `;
         
         const nameCell = tr.querySelector('.item-name-cell');
@@ -150,3 +258,4 @@ tierSearch.addEventListener('input', updateTable);
 
 // 7. Initialize
 loadTierData();
+setInterval(loadTierData, REFRESH_INTERVAL_MS);
