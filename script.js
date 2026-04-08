@@ -133,6 +133,7 @@ function parseSheetCsv(text) {
         return {
             id: parseId(getField(record, ['id', 'itemid', 'item'])),
             name: getField(record, ['name', 'itemname']),
+            iconUrl: getField(record, ['iconurl', 'icon', 'iconlink', 'imageurl']),
             tier: parseList(getField(record, ['tier', 'tiers', 'raidtier'])),
             effect: getField(record, ['effect', 'buff', 'description']),
             duration: getField(record, ['duration', 'length']),
@@ -163,7 +164,7 @@ async function loadConsumables() {
         updateTable();
     } catch (error) {
         console.error(error);
-        tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color: red;">Error: Could not load data from Google Sheet or local JSON.</td></tr>`;
+        tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color: red;">Error: Could not load data from Google Sheet or local JSON.</td></tr>`;
     }
 }
 
@@ -200,7 +201,7 @@ function updateTable() {
     tableBody.innerHTML = '';
 
     if (filteredData.length === 0) {
-        tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding: 20px;">No items match these filters.</td></tr>`;
+        tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding: 20px;">No items match these filters.</td></tr>`;
         return;
     }
 
@@ -216,8 +217,14 @@ filteredData.forEach(item => {
     nameLink.addEventListener('mouseenter', () => {
         const tooltipEl = document.getElementById('wow-tooltip'); // Define inside or ensure global access
         tooltipEl.style.display = 'block';
+        const iconHtml = item.iconUrl
+            ? `<img class="tooltip-icon" src="${item.iconUrl}" alt="${item.name} icon" loading="lazy" referrerpolicy="no-referrer">`
+            : '';
         tooltipEl.innerHTML = `
-            <div class="tooltip-title">${item.name}</div>
+            <div class="tooltip-header">
+                ${iconHtml}
+                <div class="tooltip-title">${item.name}</div>
+            </div>
             <div class="tooltip-sub">${item.duration} Duration</div>
             <div class="tooltip-effect" style="color: #ffd100; margin-top: 8px;">${item.effect}</div>
             <div class="tooltip-sub" style="margin-top: 8px; color: #aaa; font-size: 0.85rem;"></div>

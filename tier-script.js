@@ -131,6 +131,7 @@ function parseSheetCsv(text) {
         return {
             id: parseId(getField(record, ['id', 'itemid', 'item'])),
             name: getField(record, ['name', 'itemname']),
+            iconUrl: getField(record, ['iconurl', 'icon', 'iconlink', 'imageurl']),
             tier: parseList(getField(record, ['tier', 'tiers', 'raidtier'])),
             effect: getField(record, ['effect', 'buff', 'description']),
             duration: getField(record, ['duration', 'length']),
@@ -163,7 +164,7 @@ async function loadTierData() {
     } catch (error) {
         console.error('Error loading tier data:', error);
         if (tableBody) {
-            tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:red;">Error loading data from Google Sheet or local JSON.</td></tr>`;
+            tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:red;">Error loading data from Google Sheet or local JSON.</td></tr>`;
         }
     }
 }
@@ -197,7 +198,7 @@ function updateTable() {
     tableBody.innerHTML = '';
 
     if (filtered.length === 0) {
-        tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding: 20px;">No items match these filters.</td></tr>`;
+        tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding: 20px;">No items match these filters.</td></tr>`;
         return;
     }
 
@@ -214,8 +215,14 @@ function updateTable() {
             const tooltip = document.getElementById('wow-tooltip');
             if (tooltip) {
                 tooltip.style.display = 'block';
+                const iconHtml = item.iconUrl
+                    ? `<img class="tooltip-icon" src="${item.iconUrl}" alt="${item.name} icon" loading="lazy" referrerpolicy="no-referrer">`
+                    : '';
                 tooltip.innerHTML = `
-                    <div class="tooltip-title">${item.name}</div>
+                    <div class="tooltip-header">
+                        ${iconHtml}
+                        <div class="tooltip-title">${item.name}</div>
+                    </div>
                     <div class="tooltip-sub">${item.duration} Duration</div>
                     <div class="tooltip-effect" style="color: #ffd100; margin-top: 8px;">${item.effect}</div>
                     <div class="tooltip-sub" style="margin-top: 8px; color: #aaa;"></div>
