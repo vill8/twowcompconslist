@@ -31,6 +31,7 @@ const classSelect = document.getElementById('class-select');
 const roleSelect = document.getElementById('role-select');
 const tierSelect = document.getElementById('tier-select');
 const tierSearch = document.getElementById('tier-search');
+const originCheckboxes = Array.from(document.querySelectorAll('.origin-checkbox'));
 const tableBody = document.querySelector('#consumables-table tbody');
 
 // 3. Update Role Menu
@@ -86,6 +87,16 @@ function buildDatabaseUrl(item) {
     return `https://database.turtlecraft.gg/?search=${encodeURIComponent(item.name)}`;
 }
 
+function formatTooltipOrigins(item) {
+    const raw = item.origin;
+    if (!raw) return '';
+    const parts = Array.isArray(raw)
+        ? raw.map(s => String(s).trim()).filter(Boolean)
+        : parseList(String(raw));
+    if (!parts.length) return '';
+    return parts.join(', ');
+}
+
 function parseCsvLine(line) {
     const result = [];
     let current = '';
@@ -137,6 +148,7 @@ function parseSheetCsv(text) {
             duration: getField(record, ['duration', 'length']),
             persists: parseBoolean(getField(record, ['persists', 'persiststhroughdeath', 'deathpersist'])),
             stacks: getField(record, ['stacks', 'stacking', 'stackingnotes']),
+            origin: parseList(getField(record, ['origin', 'origins', 'source', 'sources'])),
             isFood: parseBoolean(getField(record, ['isfood', 'food', 'fooditem'])),
             roles: parseList(getField(record, ['roles', 'role'])),
             classes: parseList(getField(record, ['classes', 'class']))
@@ -176,6 +188,8 @@ function updateTable() {
     const selectedClass = classSelect.value;
     const selectedRole = roleSelect.value;
     const selectedTier = tierSelect.value;
+    const selectedOrigins = originCheckboxes.filter(cb => cb.checked).map(cb => cb.value.toLowerCase());
+    const allOriginsSelected = originCheckboxes.length > 0 && selectedOrigins.length === originCheckboxes.length;
     const query = tierSearch.value.toLowerCase().trim();
 
     const filtered = consumablesData.filter(item => {
@@ -192,7 +206,16 @@ function updateTable() {
         // Role check
         const roleMatch = (selectedRole === 'all' || (item.roles && item.roles.includes(selectedRole)));
 
-        return tierMatch && classMatch && roleMatch;
+        if (!tierMatch || !classMatch || !roleMatch) return false;
+
+        // Origin check (backward-compatible with rows that do not define origin)
+        if (selectedOrigins.length > 0 && !allOriginsSelected) {
+            const itemOrigins = Array.isArray(item.origin) ? item.origin : parseList(item.origin);
+            if (itemOrigins.length === 0) return false;
+            return itemOrigins.some(origin => selectedOrigins.includes(origin));
+        }
+
+        return true;
     });
 
     tableBody.innerHTML = '';
@@ -218,6 +241,10 @@ function updateTable() {
                 const iconHtml = item.iconUrl
                     ? `<img class="tooltip-icon" src="${item.iconUrl}" alt="${item.name} icon" loading="lazy" referrerpolicy="no-referrer">`
                     : '';
+                const originText = formatTooltipOrigins(item);
+                const originHtml = originText
+                    ? `<div class="tooltip-sub tooltip-origin">Origin: ${originText}</div>`
+                    : '';
                 tooltip.innerHTML = `
                     <div class="tooltip-header">
                         ${iconHtml}
@@ -225,7 +252,7 @@ function updateTable() {
                     </div>
                     <div class="tooltip-sub">${item.duration} Duration</div>
                     <div class="tooltip-effect" style="color: #ffd100; margin-top: 8px;">${item.effect}</div>
-                    <div class="tooltip-sub" style="margin-top: 8px; color: #aaa;"></div>
+                    ${originHtml}
                 `;
             }
         });
@@ -262,6 +289,7 @@ classSelect.addEventListener('change', updateRoleMenu);
 roleSelect.addEventListener('change', updateTable);
 tierSelect.addEventListener('change', updateTable);
 tierSearch.addEventListener('input', updateTable);
+originCheckboxes.forEach(cb => cb.addEventListener('change', updateTable));
 
 // 7. Initialize
 loadTierData();

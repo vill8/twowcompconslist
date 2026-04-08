@@ -6,13 +6,14 @@ This project can now load consumables from a published Google Sheet CSV instead 
 
 Create a sheet tab (for example: `Consumables`) with this recommended header row:
 
-`id,name,tier,effect,duration,persists,stacks,isFood,roles,classes`
+`id,name,tier,effect,duration,persists,stacks,origin,isFood,roles,classes`
 
 Formatting rules:
 
 - `id`: Turtle WoW item ID (numbers only). If present, links go directly to the item page.
 - `persists` and `isFood`: use `true` or `false`
 - `tier`, `roles`, `classes`: use comma, semicolon, or pipe separated values (for example `tier1|tier2.5|tier3`)
+- `origin`: use one or multiple values (e.g. `alchemy`, `engineering`, `blasted lands buff`) separated by comma, semicolon, or pipe
 - `name` is required for each row
 
 Future-proofing notes:
@@ -23,6 +24,7 @@ Future-proofing notes:
   - `name`: `name`, `itemName`
   - `tier`: `tier`, `tiers`, `raidTier`
   - `effect`: `effect`, `buff`, `description`
+  - `origin`: `origin`, `origins`, `source`, `sources`
   - `isFood`: `isFood`, `food`, `foodItem`
 - Extra columns are safely ignored, so you can add notes/metadata later
 

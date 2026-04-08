@@ -103,6 +103,7 @@ body {
 
 .checkbox-group label {
     margin: 0;
+    font-size: 1.13rem;
 }
 
 .checkbox-group input[type="checkbox"] {
@@ -110,6 +111,54 @@ body {
     height: 22px;
     cursor: pointer;
     accent-color: var(--wow-gold);
+}
+
+.origin-checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.origin-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.96rem;
+    color: var(--wow-text);
+}
+
+.origin-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--wow-gold);
+}
+
+.origin-world-drop {
+    letter-spacing: 0.1px;
+}
+
+.advanced-filters summary {
+    cursor: pointer;
+    list-style: none;
+    font-family: 'Cinzel', serif;
+    color: var(--wow-gold);
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.advanced-filters summary::-webkit-details-marker {
+    display: none;
+}
+
+.advanced-filters summary::before {
+    content: "▶ ";
+}
+
+.advanced-filters[open] summary::before {
+    content: "▼ ";
 }
 
 #food-checkbox,
@@ -274,7 +323,7 @@ input[type="text"]::placeholder {
     border-color: var(--wow-gold);
 }
 .wow-tooltip {
-    background: rgba(7, 12, 33, 0.85);
+    background: rgba(7, 12, 33, 0.92);
     border: 1px solid #777;
     padding: 10px;
     border-radius: 4px;
@@ -305,6 +354,15 @@ input[type="text"]::placeholder {
 .tooltip-sub {
     color: #ffd100;
     font-size: 0.9rem;
+}
+
+.tooltip-origin {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #444;
+    color: #aaa !important;
+    font-size: 0.82rem;
+    line-height: 1.35;
 }
 
 /* Top navigation bar */

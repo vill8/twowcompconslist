@@ -32,6 +32,7 @@ const classSelect = document.getElementById('class-select');
 const roleSelect = document.getElementById('role-select');
 const foodCheckbox = document.getElementById('food-checkbox');
 const protectionCheckbox = document.getElementById('protection-checkbox'); // New Element
+const originCheckboxes = Array.from(document.querySelectorAll('.origin-checkbox'));
 const searchInput = document.getElementById('search-input');
 const tableBody = document.querySelector('#consumables-table tbody');
 
@@ -88,6 +89,16 @@ function buildDatabaseUrl(item) {
     return `https://database.turtlecraft.gg/?search=${encodeURIComponent(item.name)}`;
 }
 
+function formatTooltipOrigins(item) {
+    const raw = item.origin;
+    if (!raw) return '';
+    const parts = Array.isArray(raw)
+        ? raw.map(s => String(s).trim()).filter(Boolean)
+        : parseList(String(raw));
+    if (!parts.length) return '';
+    return parts.join(', ');
+}
+
 function parseCsvLine(line) {
     const result = [];
     let current = '';
@@ -139,6 +150,7 @@ function parseSheetCsv(text) {
             duration: getField(record, ['duration', 'length']),
             persists: parseBoolean(getField(record, ['persists', 'persiststhroughdeath', 'deathpersist'])),
             stacks: getField(record, ['stacks', 'stacking', 'stackingnotes']),
+            origin: parseList(getField(record, ['origin', 'origins', 'source', 'sources'])),
             isFood: parseBoolean(getField(record, ['isfood', 'food', 'fooditem'])),
             roles: parseList(getField(record, ['roles', 'role'])),
             classes: parseList(getField(record, ['classes', 'class']))
@@ -174,6 +186,8 @@ function updateTable() {
     const selectedRole = roleSelect.value;
     const includeFood = foodCheckbox.checked;
     const includeProtection = protectionCheckbox.checked; // New State
+    const selectedOrigins = originCheckboxes.filter(cb => cb.checked).map(cb => cb.value.toLowerCase());
+    const allOriginsSelected = originCheckboxes.length > 0 && selectedOrigins.length === originCheckboxes.length;
     const query = searchInput.value.toLowerCase().trim();
 
     const filteredData = consumablesData.filter(item => {
@@ -188,6 +202,14 @@ function updateTable() {
 
         // Food check
         if (!includeFood && item.isFood) return false;
+
+        // Origin check (backward-compatible with rows that do not define origin)
+        if (selectedOrigins.length > 0 && !allOriginsSelected) {
+            const itemOrigins = Array.isArray(item.origin) ? item.origin : parseList(item.origin);
+            if (itemOrigins.length === 0) return false;
+            const originMatch = itemOrigins.some(origin => selectedOrigins.includes(origin));
+            if (!originMatch) return false;
+        }
         
         // Class check
         const classMatch = (selectedClass === 'all' || item.classes.includes(selectedClass));
@@ -220,6 +242,10 @@ filteredData.forEach(item => {
         const iconHtml = item.iconUrl
             ? `<img class="tooltip-icon" src="${item.iconUrl}" alt="${item.name} icon" loading="lazy" referrerpolicy="no-referrer">`
             : '';
+        const originText = formatTooltipOrigins(item);
+        const originHtml = originText
+            ? `<div class="tooltip-sub tooltip-origin">Origin: ${originText}</div>`
+            : '';
         tooltipEl.innerHTML = `
             <div class="tooltip-header">
                 ${iconHtml}
@@ -227,7 +253,7 @@ filteredData.forEach(item => {
             </div>
             <div class="tooltip-sub">${item.duration} Duration</div>
             <div class="tooltip-effect" style="color: #ffd100; margin-top: 8px;">${item.effect}</div>
-            <div class="tooltip-sub" style="margin-top: 8px; color: #aaa; font-size: 0.85rem;"></div>
+            ${originHtml}
         `;
     });
 
@@ -262,6 +288,7 @@ classSelect.addEventListener('change', updateRoleMenu);
 roleSelect.addEventListener('change', updateTable);
 foodCheckbox.addEventListener('change', updateTable);
 protectionCheckbox.addEventListener('change', updateTable); // New Listener
+originCheckboxes.forEach(cb => cb.addEventListener('change', updateTable));
 searchInput.addEventListener('input', updateTable);
 
 // 7. Initialize
