@@ -3,18 +3,19 @@
 :root {
     --wow-gold: #f8b700;
     --wow-dark: #111111;
+    /* database.turtlecraft.gg page backdrop */
+    --wow-page-bg: #100d0c;
     --wow-panel: #1a1a1a;
     --wow-border: #443311;
     --wow-text: #e0e0e0;
     --wow-link: #ffcc00;
 }
 
+/* Background from database.turtlecraft.gg (global.css body::before) — asset copied to images/menu_pattern.png */
 body {
-    background-color: var(--wow-dark);
-    /* A subtle dark marble/stone texture for the background */
-    background-image: url('https://turtlecraft.gg/build/assets/Moonwhisper_Coast-Be-tD1Vx.jpg'); 
-    background-size: cover;
-    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--wow-page-bg);
     color: var(--wow-text);
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -22,6 +23,44 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: url('images/menu_pattern.png') no-repeat center;
+    background-size: 100%;
+    background-position-y: -60px;
+}
+
+@media (min-width: 1600px) {
+    body::before {
+        background-position-y: -90px;
+    }
+}
+
+@media (min-width: 2100px) {
+    body::before {
+        background-position-y: -135px;
+    }
+}
+
+@media (min-width: 2200px) {
+    body::before {
+        background-position-y: -120px;
+    }
+}
+
+@media (min-width: 2600px) {
+    body::before {
+        background-position-y: -130px;
+    }
 }
 
 .main-header {
@@ -232,6 +271,39 @@ th {
     font-size: 1.1rem;
 }
 
+th.icon-col-header {
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    padding: 14px 6px;
+}
+
+td.item-icon-cell {
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    padding: 8px 6px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-item-icon {
+    display: block;
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+    border: 1px solid #2b2b2b;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.55);
+    background: #000;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.table-item-icon-placeholder {
+    background: linear-gradient(145deg, #111 0%, #1b1b1b 100%);
+    border-color: #3a2d19;
+}
+
 tr:nth-child(even) {
     background-color: rgba(255,255,255,0.03);
 }
@@ -338,47 +410,98 @@ input[type="text"]::placeholder {
     color: #fff;
     border-color: var(--wow-gold);
 }
+/* aoWoW / Turtle DB style tooltip (custom JS logic, local assets) */
 .wow-tooltip {
-    background: rgba(7, 12, 33, 0.92);
-    border: 1px solid #777;
-    padding: 10px;
+    background: #000a2a;
+    border: 1px solid #9aa9bc;
     border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.8);
-    max-width: 300px;
+    padding: 8px 12px 10px 9px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.78);
+    max-width: 320px;
+    box-sizing: border-box;
+    overflow: visible;
     z-index: 1000;
-}
-.tooltip-title {
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-}
-.tooltip-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 4px;
-}
-.tooltip-icon {
-    width: 36px;
-    height: 36px;
-    border: 1px solid #555;
-    border-radius: 3px;
-    object-fit: cover;
-    background: #000;
-}
-.tooltip-sub {
-    color: #ffd100;
-    font-size: 0.9rem;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 17px;
+    color: #ffffff;
+    pointer-events: none;
 }
 
-.tooltip-origin {
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px solid #444;
-    color: #aaa !important;
-    font-size: 0.82rem;
-    line-height: 1.35;
+.wow-tooltip .tooltip-shell {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+.wow-tooltip .tooltip-column {
+    flex: 1;
+    min-width: 0;
+}
+
+.wow-tooltip .tooltip-icon-wrap {
+    flex-shrink: 0;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    background-image: url('images/icon_border_medium.png');
+    background-size: 44px 44px;
+    background-repeat: no-repeat;
+}
+
+.wow-tooltip .tooltip-icon {
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    background: #000;
+    border: 0;
+}
+
+.wow-tooltip .tooltip-title {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0 0 4px 0;
+    line-height: 18px;
+    color: #a335ee;
+}
+
+/* aoWoW quality classes */
+.wow-tooltip .q0, .wow-tooltip .q0 a { color: #9d9d9d !important; }
+.wow-tooltip .q1, .wow-tooltip .q1 a { color: #fff !important; }
+.wow-tooltip .q2, .wow-tooltip .q2 a { color: #1eff00 !important; }
+.wow-tooltip .q3, .wow-tooltip .q3 a { color: #0070dd !important; }
+.wow-tooltip .q4, .wow-tooltip .q4 a { color: #a335ee !important; }
+.wow-tooltip .q5, .wow-tooltip .q5 a { color: #ff8000 !important; }
+.wow-tooltip .q6, .wow-tooltip .q6 a { color: #e6cc80 !important; }
+.wow-tooltip .q7, .wow-tooltip .q7 a { color: #f00 !important; }
+.wow-tooltip .q8, .wow-tooltip .q8 a { color: #ffff98 !important; }
+
+.wow-tooltip .tooltip-meta {
+    color: #ffffff;
+    font-size: 12px;
+    margin: 0 0 1px 0;
+}
+
+.wow-tooltip .tooltip-effect {
+    color: #1eff00;
+    font-size: 12px;
+    line-height: 17px;
+    margin-top: 8px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.wow-tooltip .tooltip-origin {
+    margin-top: 8px;
+    padding-top: 5px;
+    border-top: 1px solid #2f3a58;
+    color: #aeb5bf;
+    font-size: 11px;
+    line-height: 15px;
 }
 
 /* Top navigation bar */
@@ -456,7 +579,6 @@ input[type="text"]::placeholder {
 @media (max-width: 1024px) {
     body {
         padding: 20px 14px;
-        background-attachment: scroll;
     }
 
     .container {

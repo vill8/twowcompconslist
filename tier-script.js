@@ -97,6 +97,72 @@ function formatTooltipOrigins(item) {
     return parts.join(', ');
 }
 
+function escapeHtml(text) {
+    return String(text ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+/** WoW quality for tooltip name color; CSV/JSON optional `quality` (name or 0–5 item quality id). */
+function normalizeTooltipQuality(raw) {
+    const q = String(raw ?? '').trim().toLowerCase();
+    if (!q) return 'epic';
+    if (/^\d+$/.test(q)) {
+        const n = parseInt(q, 10);
+        const byNum = ['poor', 'common', 'uncommon', 'rare', 'epic', 'legendary'];
+        if (n >= 0 && n < byNum.length) return byNum[n];
+        if (n === 6) return 'artifact';
+        return 'common';
+    }
+    if (q === 'epic' || q === 'purple') return 'epic';
+    if (q === 'rare' || q === 'blue') return 'rare';
+    if (q === 'uncommon' || q === 'green') return 'uncommon';
+    if (q === 'legendary' || q === 'orange') return 'legendary';
+    if (q === 'artifact') return 'artifact';
+    if (q === 'heirloom') return 'heirloom';
+    if (q === 'poor' || q === 'gray' || q === 'grey') return 'poor';
+    if (q === 'common' || q === 'white') return 'common';
+    return 'common';
+}
+
+function qualityClassFromNormalized(quality) {
+    const map = {
+        poor: 'q0',
+        common: 'q1',
+        uncommon: 'q2',
+        rare: 'q3',
+        epic: 'q4',
+        legendary: 'q5',
+        artifact: 'q6',
+        heirloom: 'q6'
+    };
+    return map[quality] || 'q1';
+}
+
+function buildItemTooltipHtml(item) {
+    const quality = normalizeTooltipQuality(item.quality);
+    const qualityClass = qualityClassFromNormalized(quality);
+    const iconWrap = item.iconUrl
+        ? `<span class="tooltip-icon-wrap"><img class="tooltip-icon" src="${escapeHtml(item.iconUrl)}" alt="${escapeHtml(item.name)}" loading="lazy" referrerpolicy="no-referrer"></span>`
+        : '';
+    const durationStr = String(item.duration || '').trim();
+    const durationBlock = durationStr
+        ? `<div class="tooltip-meta">${escapeHtml(durationStr)} Duration</div>`
+        : '';
+    const effectStr = String(item.effect || '').trim();
+    const effectBlock = effectStr
+        ? `<div class="tooltip-effect">${escapeHtml(effectStr)}</div>`
+        : '';
+    const originText = formatTooltipOrigins(item);
+    const originBlock = originText
+        ? `<div class="tooltip-origin">${escapeHtml('Origin: ' + originText)}</div>`
+        : '';
+    const title = escapeHtml(item.name);
+    return `<div class="tooltip-shell">${iconWrap}<div class="tooltip-column"><div class="tooltip-title ${qualityClass}">${title}</div>${durationBlock}${effectBlock}${originBlock}</div></div>`;
+}
+
 function parseCsvLine(line) {
     const result = [];
     let current = '';
@@ -151,7 +217,8 @@ function parseSheetCsv(text) {
             origin: parseList(getField(record, ['origin', 'origins', 'source', 'sources'])),
             isFood: parseBoolean(getField(record, ['isfood', 'food', 'fooditem'])),
             roles: parseList(getField(record, ['roles', 'role'])),
-            classes: parseList(getField(record, ['classes', 'class']))
+            classes: parseList(getField(record, ['classes', 'class'])),
+            quality: getField(record, ['quality', 'rarity', 'itemquality'])
         };
     }).filter(item => item.name);
 }
@@ -176,7 +243,7 @@ async function loadTierData() {
     } catch (error) {
         console.error('Error loading tier data:', error);
         if (tableBody) {
-            tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:red;">Error loading data from Google Sheet or local JSON.</td></tr>`;
+            tableBody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:red;">Error loading data from Google Sheet or local JSON.</td></tr>`;
         }
     }
 }
@@ -221,7 +288,7 @@ function updateTable() {
     tableBody.innerHTML = '';
 
     if (filtered.length === 0) {
-        tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding: 20px;">No items match these filters.</td></tr>`;
+        tableBody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding: 20px;">No items match these filters.</td></tr>`;
         return;
     }
 
@@ -238,22 +305,7 @@ function updateTable() {
             const tooltip = document.getElementById('wow-tooltip');
             if (tooltip) {
                 tooltip.style.display = 'block';
-                const iconHtml = item.iconUrl
-                    ? `<img class="tooltip-icon" src="${item.iconUrl}" alt="${item.name} icon" loading="lazy" referrerpolicy="no-referrer">`
-                    : '';
-                const originText = formatTooltipOrigins(item);
-                const originHtml = originText
-                    ? `<div class="tooltip-sub tooltip-origin">Origin: ${originText}</div>`
-                    : '';
-                tooltip.innerHTML = `
-                    <div class="tooltip-header">
-                        ${iconHtml}
-                        <div class="tooltip-title">${item.name}</div>
-                    </div>
-                    <div class="tooltip-sub">${item.duration} Duration</div>
-                    <div class="tooltip-effect" style="color: #ffd100; margin-top: 8px;">${item.effect}</div>
-                    ${originHtml}
-                `;
+                tooltip.innerHTML = buildItemTooltipHtml(item);
             }
         });
 
@@ -270,14 +322,19 @@ function updateTable() {
             if (tooltip) tooltip.style.display = 'none';
         });
 
+        const iconCellHtml = item.iconUrl
+            ? `<img class="table-item-icon" src="${escapeHtml(item.iconUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer">`
+            : `<span class="table-item-icon table-item-icon-placeholder" aria-hidden="true"></span>`;
+
         tr.innerHTML = `
+            <td class="item-icon-cell">${iconCellHtml}</td>
             <td class="item-name-cell"></td>
             <td>${item.effect}</td>
             <td>${item.duration}</td>
             <td>${item.persists ? "Yes" : "No"}</td>
             <td>${item.stacks || ''}</td>
         `;
-        
+
         const nameCell = tr.querySelector('.item-name-cell');
         if (nameCell) nameCell.appendChild(nameLink);
         tableBody.appendChild(tr);
